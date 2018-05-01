@@ -50,6 +50,14 @@ getUserRepos() {
   });
 }
 
+handleFormSubmit(enteredUsername) {
+  this.setState({username: enteredUsername}, function(){
+    this.getUserData();
+    this.getUserRepos();
+  });
+
+}
+
 componentDidMount() {
   this.getUserData();
   this.getUserRepos();
@@ -58,6 +66,7 @@ componentDidMount() {
   render() {
     return(
       <div>
+        <Search onFormSubit = {this.handleFormSubmit.bind(this)} />
         <Profile userData = {this.state.userData} />
         <RepoList userRepos = {this.state.userRepos} />
       </div>
