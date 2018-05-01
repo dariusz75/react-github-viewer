@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import Profile from './github/Profile.jsx';
+import RepoList from './github/RepoList.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -10,13 +11,13 @@ class App extends Component {
       username: 'dariusz75',
       userData: [],
       userRepos: [],
-      perPage: 5
+      perPage: 10
     }
   }
 // getting user data from gitHub
 getUserData() {
   $.ajax({
-    url: 'https://api.github.com/users/' + this.state.username + '?client_Id=' + this.state.clientId + '&client_secret=' + this.props.clientSecret,
+    url: 'https://api.github.com/users/' + this.state.username + '?client_Id=' + this.props.clientId + '&client_secret=' + this.props.clientSecret,
     dataType: 'json',
     cache: false,
     success: function(data) {
@@ -30,14 +31,33 @@ getUserData() {
   });
 }
 
+// getting user Repos from gitHub
+getUserRepos() {
+  $.ajax({
+    url: 'https://api.github.com/users/' + this.state.username + '/repos?per_page=' + this.state.perPage + '&client_Id=' + this.props.clientId + '&client_secret=' + this.props.clientSecret + '&sort=created',
+    dataType: 'json',
+    cache: false,
+    success: function(data) {
+      this.setState({userRepos: data});
+      console.log(this.state);
+    }.bind(this),
+    error: function(xhr, status, err) {
+      this.setState({username: null});
+      alert(err).bind(this);;
+    }
+  });
+}
+
 componentDidMount() {
   this.getUserData();
+  this.getUserRepos();
 }
 
   render() {
     return(
       <div>
         <Profile userData = {this.state.userData} />
+        <RepoList userRepos = {this.state.userRepos} />
       </div>
     );
   }
