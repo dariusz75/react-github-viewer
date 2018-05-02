@@ -65,17 +65,11 @@ componentDidMount() {
 
   render() {
     return(
-      <div className="row">
-      <div className="col-12">
+      <div >
         <Search onFormSubit = {this.handleFormSubmit.bind(this)} />
-      </div>
-      <div className="col-sm-6">
         <Profile userData = {this.state.userData} />
-      </div>
-      <div className="col-sm-6">
         <RepoList userRepos = {this.state.userRepos} />
       </div>
-    </div>
     );
   }
 }
