@@ -19,8 +19,8 @@ onSubmit(e) {
     return(
       <div>
         <form onSubmit={this.onSubmit.bind(this)} >
-          <label>Rearch User</label>
-          <input type="text" ref="username" className="form-control" />
+          <label>Search Profile</label>
+          <input type="text" ref="username" placeholder="Enter a Username and press Enter" className="form-control" />
         </form>
       </div>
     )

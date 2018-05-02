@@ -7,7 +7,6 @@ class RepoList extends Component {
   render() {
     return(
       <div>
-        <h5>List of 10 repositories sorted by date</h5>
         <div className="list-group">
           {
   					this.props.userRepos.map(function(repo){
