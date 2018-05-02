@@ -17,7 +17,7 @@ onSubmit(e) {
   render() {
 
     return(
-      <div>
+      <div className="search-wrapper">
         <form onSubmit={this.onSubmit.bind(this)} >
           <label>Search Profile</label>
           <input type="text" ref="username" placeholder="Enter a Username and press Enter" className="form-control" />

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700');
+
+body {
+  margin-top: 15px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.search-wrapper {
+  margin-bottom: 10px;
+}
+
+.accent{
+  font-weight: 700;
+}
+
+.card {
+  margin-bottom: 10px;
+}
