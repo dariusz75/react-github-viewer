@@ -8,11 +8,11 @@ class Profile extends Component {
     return(
       <div className="card" >
 				<div className="row">
-					<div className="col-6 col-md-3">
-	      		<img className="card-img-top" src={this.props.userData.avatar_url} alt="Card image cap"></img>
+					<div className="col-5 col-md-3">
+	      		<img className="profile-photo card-img-top" src={this.props.userData.avatar_url} alt="Card image cap"></img>
 						<h6 className="card-title"></h6>
 					</div>
-					<div className="col-md-7">
+					<div className="col-md-9">
 		        <div className="card-body">
 							<h5 className="card-title alert alert-primary">{this.props.userData.name}</h5>
 		    			<p className="card-text">

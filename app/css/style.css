@@ -16,3 +16,7 @@ body {
 .card {
   margin-bottom: 10px;
 }
+
+.profile-photo {
+  margin: 15px 0 0 15px;
+}
